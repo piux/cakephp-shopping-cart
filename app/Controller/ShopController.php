@@ -205,7 +205,7 @@ class ShopController extends AppController {
 				$order = $shop;
 				$order['Order']['status'] = 1;
 
-				if($shop['Order']['order_type'] == 'paypal') {
+				/*if($shop['Order']['order_type'] == 'paypal') {
 					$paypal = $this->Paypal->ConfirmPayment($order['Order']['total']);
 					//debug($resArray);
 					$ack = strtoupper($paypal['ACK']);
@@ -231,7 +231,7 @@ class ShopController extends AppController {
 					}
 					$order['Order']['authorization'] = $authorizeNet[4];
 					$order['Order']['transaction'] = $authorizeNet[6];
-				}
+				}*/
 
 				$save = $this->Order->saveAll($order, array('validate' => 'first'));
 				if($save) {
